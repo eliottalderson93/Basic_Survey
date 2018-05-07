@@ -13,6 +13,13 @@
 
 <body>
     <div class="wrapper">
+        {% with messages = get_flashed_messages() %}
+            {% if messages %}
+                {% for message in messages %}
+                    <p>{{message}}</p>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
         <form class="survey" action="/submitted" method="post" id="survey">
             <div class="line">
                 <p>Your Name:</p>
